@@ -29,7 +29,10 @@ class CompressMedia:
         self._with_ext = with_ext
 
     def get_media_url(self, url, mediatype, prefix=settings.MEDIA_URL):
-        return prefix.rstrip('/') + '/%s/' % (mediatype, ) + url
+        js_dir = getattr(settings, 'JC_JS_DIR', mediatype)
+        css_dir = getattr(settings, 'JC_CSS_DIR', mediatype)
+        res_dir = js_dir if mediatype == 'js' else css_dir 
+        return prefix.rstrip('/') + '/%s/' % (res_dir, ) + url
 
     def make_compiled(self, mediatype, items):
         media_urls = []
