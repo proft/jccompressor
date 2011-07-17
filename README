@@ -1,3 +1,16 @@
+NEW
+===
+
+I prefer to store static in ``MEDIA_URL/s/`` for *css* and ``MEDIA_URL/j/`` for *js*. So, added new settings
+
+JC_JS_DIR = 'j'
+JC_CSS_DIR = 's'
+
+If you skip this, then all will remain as is: *css* dir for styles, *js* for javascript.
+
+ORIGINAL
+========
+
 Simple compressor for javascript and css files. Purpose of this package is to
 make compressing with easy ways. It means that you do not need run compressor
 in single mode through shell or another application to get new files, but get 
@@ -78,12 +91,3 @@ class StylusBackend(BaseJCBackend):
 Another function in your backend is ``pre_open()``. It always applicable for all
 of your scripts you apply to filter ``compress_css`` or ``compress_js`` when 
 compiler tries to open file before reading content.
-
-**NEW**
-
-I prefer to store static in ``MEDIA_URL/s/`` for *css* and ``MEDIA_URL/j/`` for *js*. So, added new settings
-
-JC_JS_DIR = 'j'
-JC_CSS_DIR = 's'
-
-If you skip this, then all will remain as is: *css* dir for styles, *js* for javascript.
